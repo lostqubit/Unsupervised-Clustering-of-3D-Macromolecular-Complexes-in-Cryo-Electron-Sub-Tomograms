@@ -42,6 +42,10 @@ class Subtomograms(Dataset):
 		#convert data to tensor and normalize //to implement
 		#subtomogram_processed = utils.to_tensor_and_normalize(subtomogram_data)
 		subtomogram_processed = torch.Tensor(subtomogram_data)
+		subtomogram_processed = subtomogram_processed.view(1,24,24,24)
+
+		rescale = tio.RescaleIntensity(out_min_max=(0, 1))
+		subtomogram_processed = rescale(subtomogram_processed)
         
 		#load label
 		label = torch.Tensor(self.labels.loc[subtomogram,:].values)
