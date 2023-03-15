@@ -39,8 +39,7 @@ class Subtomograms(Dataset):
 			subtomogram_data = f.data
 			f.close()
 
-		#convert data to tensor and normalize //to implement
-		#subtomogram_processed = utils.to_tensor_and_normalize(subtomogram_data)
+		#convert data to tensor and rescale voxels b/w 0 and 1
 		subtomogram_processed = torch.Tensor(subtomogram_data)
 		subtomogram_processed = subtomogram_processed.view(1,24,24,24)
 
