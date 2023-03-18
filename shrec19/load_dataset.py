@@ -5,10 +5,6 @@ import mrcfile
 import torch
 from torch.utils.data import Dataset
 
-np.random.seed(0)
-torch.manual_seed(0)
-torch.cuda.manual_seed(0)
-torch.cuda.manual_seed_all(0)
 
 class Subtomograms(Dataset):
 	def __init__(self,dataset):
